@@ -6,6 +6,8 @@
     <title>Calc win10</title>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
+
+
 </head>
 <body>
     <main >
@@ -37,11 +39,10 @@
                         </div>
                         <div class="nr">
                             <input class="nr_resultado" type="text" id="display" readonly>
-                            <!-- <h1>0</h1> -->
                         </div>
                     </div>
                 </section>
-                <section class="teclas">
+                <section class="teclas" id="teclas">
                     <div class="options_m">
                         <button>MC</button>
                         <button>MR</button>
@@ -50,31 +51,31 @@
                         <button>MS</button>
                         <button>M-</button>
                     </div>
-                    <div class="numbers">
-                        <button onclick="append('7')" class="sinais">%</button>
-                        <button onclick="clearDisplay()" class="sinais">CE</button>
-                        <button onclick="clearDisplay()" class="sinais">C</button>
-                        <button onclick="clearDisplay()" class="sinais"></button>
-                        <button onclick="append('7')" class="sinais">1/x</button>
-                        <button onclick="append('8')" class="sinais">x2</button>
-                        <button onclick="append('9')" class="sinais">2vx</button>
-                        <button onclick="append('7')" class="sinais">%</button>
-                        <button onclick="appendNumber(7)">7</button>
-                        <button onclick="appendNumber(8)">8</button>
-                        <button onclick="appendNumber(9)">9</button>
-                        <button onclick="appendOperator('*')" class="sinais">x</button>
-                        <button onclick="appendNumber(4)">4</button>
-                        <button onclick="appendNumber(5)">5</button>
-                        <button onclick="appendNumber(6)">6</button>
-                        <button onclick="appendOperator('-')" class="sinais">-</button>
-                        <button onclick="appendNumber(1)">1</button>
-                        <button onclick="appendNumber(2)">2</button>
-                        <button onclick="appendNumber(3)">3</button>
-                        <button onclick="appendOperator('+')" class="sinais">+</button>
+                    <div class="numbers" id="numeros">
+                        <button class="sinais">%</button>
+                        <button class="sinais">CE</button>
+                        <button class="sinais">C</button>
+                        <button class="sinais"></button>
+                        <button class="sinais">1/x</button>
+                        <button class="sinais">x2</button>
+                        <button class="sinais">2vx</button>
+                        <button class="sinais">%</button>
+                        <button>7</button>
+                        <button>8</button>
+                        <button>9</button>
+                        <button class="sinais">x</button>
+                        <button>4</button>
+                        <button>5</button>
+                        <button>6</button>
+                        <button class="sinais">-</button>
+                        <button>1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button onclick="inserirSinal('+')">+</button>
                         <button>+/-</button>
-                        <button onclick="appendNumber(0)">0</button>
-                        <button onclick="appendOperator('.')">.</button>
-                        <button onclick="calculate()">TESTE GIT</button>
+                        <button>0</button>
+                        <button>.</button>
+                        <button>=</button>     
                     </div>
                 </section>
             </div>
