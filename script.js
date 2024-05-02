@@ -1,14 +1,15 @@
-const buttons = document.querySelectorAll('#numeros button');
-const display = document.querySelector('.nr_resultado');
+$(document).ready(function() {
+    const buttons = $('#numeros button');
+    const display = $('.nr_resultado');
 
-let primeiroNumero = '';
-let segundoNumero = '';
-let operacao = '';
-let resultadoAnterior = '';
+    let primeiroNumero = '';
+    let segundoNumero = '';
+    let operacao = '';
+    let resultadoAnterior = '';
+    
 
-buttons.forEach(button => {
-    button.addEventListener('click', () => {
-        const valor = button.textContent.trim();
+    buttons.click(function() {
+        const valor = $(this).text().trim();
 
         if (valor === 'C') {
             limparVisor();
@@ -18,7 +19,7 @@ buttons.forEach(button => {
             } else {
                 segundoNumero += valor;
             }
-            display.value += valor;
+            display.val(display.val() + valor);
         } else {
             if (valor === '=') {
                 if (resultadoAnterior !== '') {
@@ -28,46 +29,46 @@ buttons.forEach(button => {
             } else {
                 if (operacao === '') {
                     operacao = valor;
-                    display.value += valor;
+                    display.val(display.val() + valor);
                 }
             }
         }
     });
-});
 
-function calcularResultado() {
-    let resultado;
-    switch (operacao) {
-      case '=':
-        resultado = parseFloat(resultado) + parseFloat(segundoNumero);
-        break;
-        case '+':
-            resultado = parseFloat(primeiroNumero) + parseFloat(segundoNumero);
-            break;
-        case '-':
-            resultado = parseFloat(primeiroNumero) - parseFloat(segundoNumero);
-            break;
-        case '*':
-            resultado = parseFloat(primeiroNumero) * parseFloat(segundoNumero);
-            break;
-        case '/':
-            resultado = parseFloat(primeiroNumero) / parseFloat(segundoNumero);
-            break;
-        default:
-            resultado = 'Erro';
-            break;
+    function calcularResultado() {
+        let resultado;
+        switch (operacao) {
+            case '=':
+                resultado = parseFloat(resultado) + parseFloat(segundoNumero);
+                break;
+            case '+':
+                resultado = parseFloat(primeiroNumero) + parseFloat(segundoNumero);
+                break;
+            case '-':
+                resultado = parseFloat(primeiroNumero) - parseFloat(segundoNumero);
+                break;
+            case '*':
+                resultado = parseFloat(primeiroNumero) * parseFloat(segundoNumero);
+                break;
+            case '/':
+                resultado = parseFloat(primeiroNumero) / parseFloat(segundoNumero);
+                break;
+            default:
+                resultado = 'Erro';
+                break;
+        }
+        display.val(resultado);
+        primeiroNumero = resultado.toString();
+        resultadoAnterior = primeiroNumero;
+        segundoNumero = '';
+        operacao = '';
     }
-    display.value = resultado;
-    primeiroNumero = resultado.toString();
-    resultadoAnterior = primeiroNumero;
-    segundoNumero = '';
-    operacao = '';
-}
 
-function limparVisor() {
-    display.value = '';
-    primeiroNumero = '';
-    segundoNumero = '';
-    operacao = '';
-    resultadoAnterior = '';
-}
+    function limparVisor() {
+        display.val('');
+        primeiroNumero = '';
+        segundoNumero = '';
+        operacao = '';
+        resultadoAnterior = '';
+    }
+});
